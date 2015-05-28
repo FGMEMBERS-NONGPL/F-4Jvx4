@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<!-- This part should be the same for any 3D panel.  Customize the actions section -->
+<PropertyList>
+
+ <name>F4N Panel Hotspots</name>
+ <background>Aircraft/DavePack/transparent-bg.rgb</background>
+ <w>1024</w>
+ <h>768</h>
+ <y-offset>0</y-offset>
+
+ <instruments>
+  <instrument>
+   <name>Hot Spot Map</name>
+   <x>512</x>
+   <y>384</y>
+   <w>1200</w>
+   <h>768</h>
+   <w-base>1024</w-base>
+   <h-base>1024</h-base>
+
+
+ <layers>
+  <layer>
+   <name>background</name>
+   <texture>
+     <path>Aircraft/DavePack/transparent-bg.rgb</path>
+     <x1>0.0</x1>
+     <y1>0.0</y1>
+     <x2>1.0</x2>
+     <y2>1.0</y2>
+   </texture>
+  </layer>
+ </layers>
+
+<!-- define hotspot actions below -->
+
+ <actions>
+
+  <!--  cockpit light dimmer hotspots -->
+  <action>
+   <name>panel brighter</name>
+   <button>0</button>
+   <x>-250</x>
+   <y>-170</y>
+   <w>40</w>
+   <h>80</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls[0]/lighting[0]/instruments-norm</property>
+    <step>0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>panel darker</name>
+   <button>0</button>
+   <x>-295</x>
+   <y>-170</y>
+   <w>40</w>
+   <h>80</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/controls[0]/lighting[0]/instruments-norm</property>
+    <step>-0.1</step>
+    <min>0</min>
+    <max>1</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+
+  <action>
+   <name>gunsight on</name>
+   <button>0</button>
+   <x>89</x>
+   <y>26</y>
+   <w>40</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>controls/armament/gunsight/power-on</property>
+    <value>true</value>
+   </binding>
+  </action>
+
+  <action>
+   <name>gunsight off</name>
+   <button>0</button>
+   <x>89</x>
+   <y>-35</y>
+   <w>40</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>controls/armament/gunsight/power-on</property>
+    <value>false</value>
+   </binding>
+  </action>
+
+  <action>
+   <name>extend refueling probe</name>
+   <button>0</button>
+   <x>305</x>
+   <y>-360</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>fdm/jsbsim/systems/refuel/armed</property>
+    <value>1.0</value>
+   </binding>
+  </action>
+
+  <action>
+   <name>retract refueling probe</name>
+   <button>0</button>
+   <x>305</x>
+   <y>-420</y>
+   <w>30</w>
+   <h>60</h>
+   <binding>
+    <command>property-assign</command>
+    <property>fdm/jsbsim/systems/refuel/armed</property>
+    <value>0</value>
+   </binding>
+  </action>
+
+  <action>
+   <name>toggle fuel dump</name>
+   <button>0</button>
+   <x>355</x>
+   <y>-420</y>
+   <w>30</w>
+   <h>120</h>
+   <binding>
+    <command>property-toggle</command>
+    <property>fdm/jsbsim/systems/dump/armed</property>
+   </binding>
+  </action>
+
+  <action>
+   <name>radar range 20</name>
+   <button>0</button>
+   <x>-100</x>
+   <y>-100</y>
+   <w>40</w>
+   <h>40</h>
+   <binding>
+    <command>property-assign</command>
+    <property>fdm/jsbsim/systems/radar/range</property>
+    <value>20</value>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property>instrumentation/radar/range</property>
+    <value>20</value>
+   </binding>
+  </action>
+
+  <action>
+   <name>radar range 40</name>
+   <button>0</button>
+   <x>-100</x>
+   <y>-141</y>
+   <w>40</w>
+   <h>40</h>
+   <binding>
+    <command>property-assign</command>
+    <property>fdm/jsbsim/systems/radar/range</property>
+    <value>40</value>
+   </binding>
+   <binding>
+    <command>property-assign</command>
+    <property>instrumentation/radar/range</property>
+    <value>40</value>
+   </binding>
+  </action>
+
+  <!--  RDMI source selector - TAC/VOR/ADF -->
+  <action>
+   <name>clockwise</name>
+   <button>0</button>
+   <x>-100</x>
+   <y>-450</y>
+   <w>40</w>
+   <h>70</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>instrumentation/rdmi-mode</property>
+    <step>1</step>
+    <min>0</min>
+    <max>2</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name>counter-clockwise</name>
+   <button>0</button>
+   <x>-145</x>
+   <y>-450</y>
+   <w>40</w>
+   <h>70</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>instrumentation/rdmi-mode</property>
+    <step>-1</step>
+    <min>0</min>
+    <max>2</max>
+    <wrap>0</wrap>
+   </binding>
+  </action>
+
+ </actions>
+
+  </instrument>
+ </instruments>
+</PropertyList>
+
+
+
